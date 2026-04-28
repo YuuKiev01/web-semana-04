@@ -1,0 +1,173 @@
+/* --- Variables y Reset --- */
+:root { 
+    --primario: #0056b3; 
+    --oscuro: #333333; 
+    --blanco: #ffffff; 
+    --accent: #ffc107; /* Amarillo para el indicador SVG */
+}
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: #f4f4f4; 
+    margin: 0; 
+}
+
+/* --- Navegación Moderna (Sticky & Dinámica) --- */
+.nav-bg { 
+    background-color: var(--primario); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    position: sticky; /* Mantiene la barra fija arriba al hacer scroll */
+    top: 0;
+    z-index: 1000;
+}
+
+.navegacion-principal { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.8rem 2rem; 
+    height: 10px; /* Altura óptima para UI moderna */
+}
+
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navegacion-principal a { 
+    color: white !important; 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 1rem; 
+    padding: 0.6rem 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Punto SVG para indicar página activa */
+.dot {
+    width: 6px;
+    height: 6px;
+    fill: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navegacion-principal a.active .dot {
+    opacity: 1; /* Visible solo en la pestaña actual */
+}
+
+.navegacion-principal a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.navegacion-principal a.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--accent) !important;
+}
+
+/* --- Buscador Premium --- */
+.search-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 2px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.search-wrapper:focus-within {
+    background: var(--blanco);
+    width: 300px; /* Expansión suave al enfocar */
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.buscador-nav { display: flex; align-items: center; padding: 0 0.5rem; }
+
+.buscador-nav input {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 1rem;
+    outline: none;
+    color: var(--blanco);
+    width: 180px;
+    font-size: 0.9rem;
+}
+
+/* Forzar color blanco en el texto "¿Qué estás buscando?" */
+.buscador-nav input::placeholder {
+    color: rgba(255, 255, 255, 0.95); 
+    opacity: 1; /* Evita que el navegador lo aclare demasiado */
+}
+
+/* Cambia el texto del placeholder a oscuro cuando el fondo es blanco */
+.search-wrapper:focus-within input::placeholder {
+    color: #888; 
+}
+
+.search-wrapper:focus-within input { color: var(--oscuro); }
+
+.buscador-nav button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--blanco);
+    display: flex;
+    padding: 8px;
+}
+
+.search-wrapper:focus-within button { color: var(--primario); }
+
+/* --- Títulos y Contenedor --- */
+h1 { text-align: center; margin-top: 2rem; color: var(--oscuro); }
+.text-center { text-align: center; }
+
+.contenedor { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.shadow {
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0px 20px 40px rgba(0,0,0,0.1);
+    padding: 3rem;
+    margin-top: 2rem;
+}
+
+/* --- Grid de Testimonios --- */
+.grid-testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.testimonio {
+    border: 1px solid #f0f0f0;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+}
+
+.testimonio:hover {
+    transform: translateY(-5px); /* Pequeña interacción al pasar el mouse */
+    border-color: var(--primario);
+}
+
+.foto-cliente {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primario);
+    margin-bottom: 1rem;
+}
+
+.testimonio h3 { color: var(--primario); margin: 0.5rem 0; }
+.estrellas { margin-top: 1rem; font-size: 1.2rem; }
+
+/* --- Footer --- */
+.footer { text-align: center; padding: 3rem; background: var(--oscuro); color: white; margin-top: 5rem; }
