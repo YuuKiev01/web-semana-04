@@ -211,3 +211,18 @@ header {
 
 /* --- Footer --- */
 .footer { text-align: center; padding: 3rem; background: var(--oscuro); color: white; margin-top: 5rem; }
+
+/* Estilos para el Modo Oscuro */
+.dark-theme {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+.dark-theme .shadow, .dark-theme .contenedor {
+    background-color: #2d2d2d !important;
+    color: white;
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3 {
+    color: #ffc107 !important;
+}
